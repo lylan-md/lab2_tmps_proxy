@@ -1,6 +1,6 @@
 import org.apache.logging.log4j.core.Logger;
 
-public class DBServiceWithLogging {
+public class DBServiceWithLogging implements DBServiceInterface {
     private Logger logger;
     private DBService dbService;
 
@@ -9,6 +9,7 @@ public class DBServiceWithLogging {
         this.dbService = dbService;
     }
 
+    @Override
     public boolean executeQuery(String query) {
         logger.debug("Execute query: " + query);
         return dbService.executeQuery(query);
